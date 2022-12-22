@@ -16,10 +16,11 @@ function App() {
 
   const draftData = JSON.parse(localStorage.getItem('productsList')) || []
   console.log(draftData)
+  const  dataToSent = draftData.length ? draftData : products.map(e=>({...e,quantity:0}))
   useEffect(() => {
-    dispatch(loadList(draftData.length ? draftData : products.map(e=>({...e,quantity:0}))))
+    dispatch(loadList(dataToSent))
 
-  }, [])
+  })
 
 
   return (

@@ -7,9 +7,8 @@ function Dashboard() {
         <>
             <Navbar />
             <div className='main-container'>
-            <Outlet />
+                <Outlet />
             </div>
-            
         </>
 
     )

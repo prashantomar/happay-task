@@ -12,10 +12,10 @@ function Navbar() {
   const handleCartClick = () => navigate("/cart");
   const handleLogoClick = () => navigate("/");
   const products = useSelector(getList);
-  const totalQ = products.reduce((a, b) => a + b.quantity, 0)  || 0
+  const totalQ = products.reduce((a, b) => a + b.quantity, 0) || 0
   return (
     <div className="navbar-container">
-      <div className="flex-row align-center cursor-pointer"  onClick={() => handleLogoClick()}>
+      <div className="flex-row align-center cursor-pointer" onClick={() => handleLogoClick()}>
         <img src={appLogo} className="app-logo" alt="img"></img>
         <div className="app-title" >Happay</div>
       </div>
@@ -24,8 +24,6 @@ function Navbar() {
           <FontAwesomeIcon icon={faCartShopping} />
           <span className={`${totalQ > 0 ? 'cart-quantity' : 'cart-empty'}`}>{totalQ}</span>
         </div>
-
-
         <Avatar />
       </span>
     </div>

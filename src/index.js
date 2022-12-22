@@ -10,32 +10,22 @@ import './index.css';
 const container = document.getElementById('root');
 const root = createRoot(container);
 
-
-// fetching data on load 
-// fetch().then(res => {
-//   console.log(res.json())
-//   .then((data) => {
-//     console.log('Success:', data);
-//   })
- 
-// })
-
 // DUE TO CORS ERROR using static json
-async function fetchData() {
-  const response = await fetch('https://react-coding-assignment.s3.ap-south-1.amazonaws.com/cards/items.json', {
-    method: 'GET', // *GET, POST, PUT, DELETE, etc.
-    mode: 'cors', // no-cors, *cors, same-origin
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin', // include, *same-origin, omit
-    headers: {
-      'Content-Type': 'application/json'
-    },
-  });
-  console.log(response)
-  const res = await response.json()
-  console.log(res)
-  return res;
-}
+// async function fetchData() {
+//   const response = await fetch('https://react-coding-assignment.s3.ap-south-1.amazonaws.com/cards/items.json', {
+//     method: 'GET', // *GET, POST, PUT, DELETE, etc.
+//     mode: 'cors', // no-cors, *cors, same-origin
+//     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+//     credentials: 'same-origin', // include, *same-origin, omit
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//   });
+//   console.log(response)
+//   const res = await response.json()
+//   console.log(res)
+//   return res;
+// }
 // fetchData().then(products => {
 //    store.dispatch(loadList(products))
 // });
