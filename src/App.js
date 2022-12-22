@@ -1,56 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+
 import './App.css';
+import { Home } from './pages/Home';
+import { Cart } from './pages/Cart';
+import NotFound from './pages/NotFound';
+import { loadList } from './app/reducers/productsSlice';
+import { useDispatch } from 'react-redux';
+import products from './products.json'
+import Dashboard from './pages/Dashboard';
 
 function App() {
+  const dispatch = useDispatch();
+
+  const draftData = JSON.parse(localStorage.getItem('productsList')) || []
+  console.log(draftData)
+  useEffect(() => {
+    dispatch(loadList(draftData.length ? draftData : products.map(e=>({...e,quantity:0}))))
+
+  }, [])
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Dashboard />} >
+              <Route path="/" element={<Home />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="*" component={<NotFound />} />
+            </Route>
+          </Routes>
+        </Router>
     </div>
   );
 }
