@@ -290,4 +290,14 @@ code {
   color: var(--primary);
   padding: 8px 16px;
   width: 100%;
+  font-weight: 600;
+}
+.primary-btn-filled{
+  border: 2px solid var(--primary);
+  border-radius: 6px;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 8px 16px;
+  width: 100%;
+  font-weight: 600;
 }

@@ -51,7 +51,7 @@ export function Cart() {
                     </div>)
                 }
                 <hr></hr>
-                <div className='text-primary'>Add more items +</div>
+                <div className='btn text-primary' onClick={() => handleBackToHomeClick()}>Add more items +</div>
               </div>
               <div className='p-16 order-box  '>
                 <div className='secondary-heading m-b-24'>Price Details</div>
@@ -88,6 +88,7 @@ export function Cart() {
                   <div className='secondary-heading'>To Pay</div>
                   <div className='currency-text'>{formatToUSD(totalAmont)}</div>
                 </div>
+                <div><button className='btn primary-btn-filled'>Place Order</button></div>
               </div>
             </div>
           </>
