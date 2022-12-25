@@ -22,9 +22,9 @@ function ProductCard(e) {
         productDetail.quantity > 0 ?
           <>
             <div className="flex-row counter-wrap" >
-              <button className="btn counter-wrap-btn" onClick={() => dispatch(reduceFromCart({ id: productDetail.id, quantity: productDetail.quantity }))}>-</button>
-              <div className="width-half text-center">{productDetail.quantity}</div>
-              <button className="btn counter-wrap-btn" onClick={() => dispatch(addToCart({ id: productDetail.id, quantity: productDetail.quantity }))}>+</button>
+              <button className="btn counter-wrap-btn br-left" onClick={() => dispatch(reduceFromCart({ id: productDetail.id, quantity: productDetail.quantity }))}>-</button>
+              <div className="width-half text-center counter-qtn-text">{productDetail.quantity}</div>
+              <button className="btn counter-wrap-btn br-right" onClick={() => dispatch(addToCart({ id: productDetail.id, quantity: productDetail.quantity }))}>+</button>
             </div>
           </>
           :

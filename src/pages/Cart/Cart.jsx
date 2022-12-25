@@ -29,7 +29,7 @@ export function Cart() {
       {
         totalItems ?
           <>
-            <div className='primary-heading'>Order Summary ({totalItems})</div>
+            <div className='primary-heading'>Order Summary ({`${totalItems} Item${totalItems > 1 ? 's': ''}`})</div>
             <div className='cart-subcontainer'>
               <div className='p-16 summary-box'>
                 <div className='flex-row table-h m-b-24 '>
@@ -44,9 +44,9 @@ export function Cart() {
                       <div className='flex-1 '>{i + 1}</div>
                       <div className='flex-2'>{p.name}</div>
                       <div className='flex-row flex-2  quantity-wrapper'>
-                        <button className="btn counter-wrap-btn-sm" onClick={() => dispatch(reduceFromCart({ id: p.id, quantity: p.quantity }))}>-</button>
-                        <div className="width-half text-center">{p.quantity}</div>
-                        <button className="btn counter-wrap-btn-sm" onClick={() => dispatch(addToCart({ id: p.id, quantity: p.quantity }))}>+</button>
+                        <button className="btn counter-wrap-btn-sm br-left" onClick={() => dispatch(reduceFromCart({ id: p.id, quantity: p.quantity }))}>-</button>
+                        <div className="width-half text-center quantity-box">{p.quantity}</div>
+                        <button className="btn counter-wrap-btn-sm br-right" onClick={() => dispatch(addToCart({ id: p.id, quantity: p.quantity }))}>+</button>
                       </div>
                     </div>)
                 }
